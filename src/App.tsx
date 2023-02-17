@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC } from "react";
+import { Form, Table } from "components";
+import styled from "styled-components";
+import { Provider } from "react-redux";
+import { store } from "store/store";
 
-function App() {
+export const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Container>
+        <h1>Table</h1>
+        <Form />
+        <Table />
+      </Container>
+    </Provider>
   );
-}
+};
 
-export default App;
+export const Container = styled.main`
+  width: 600px;
+  margin: 0 auto;
+  padding-top: 100px;
+  text-align: center;
+`;
